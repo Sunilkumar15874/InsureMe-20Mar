@@ -1,0 +1,26 @@
+pipeline {
+  agent any
+    tools{
+      maven 'M2_HOME'
+          }
+   stages {
+    stage('Git checkout') {
+      steps {
+           echo 'This is for cloning the gitrepo'
+           git branch: 'main', url: 'https://github.com/Sunilkumar15874/InsureMe-20Mar.git'
+            }
+          }
+    stage('Maven package') {
+      steps {
+           echo 'This is for packaging the application'
+           sh 'mvn package'
+            }
+          }
+    stage('Test results') {
+      steps {
+           echo 'This is for generating Test results'
+           publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, icon: '', keepAll: false, reportDir: '/var/lib/jenkins/workspace/Insurance-project/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+            }
+          }
+     }
+}
