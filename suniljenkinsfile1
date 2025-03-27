@@ -28,5 +28,17 @@ pipeline {
            sh 'docker build -t sk15874/insureme:latest .'
             }
           }
+    stage('Login to Dockerhub') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'docker-user', passwordVariable: 'docker-id-pass', usernameVariable: 'docker-id-user')]) {
+        sh 'docker login -u ${dockeruser} -p ${dockerpass}'
+                      }
+                }  
+            }
+    stage('Push the Docker image') {
+      steps {
+        sh 'docker push sk15874/insureme:latest'
+                               }
+            }
      }
 }
