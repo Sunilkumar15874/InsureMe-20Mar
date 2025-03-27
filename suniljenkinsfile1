@@ -40,5 +40,5 @@ pipeline {
         sh 'docker push sk15874/insureme:latest'
                                }
             }
-     }
+    }
 }
