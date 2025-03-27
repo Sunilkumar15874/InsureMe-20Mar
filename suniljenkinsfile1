@@ -26,7 +26,7 @@ pipeline {
       steps {
            echo 'This is for Docker image build'
            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, icon:
-             }
-           }
+            }
+          }
      }
 }
