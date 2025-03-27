@@ -25,6 +25,8 @@ pipeline {
     stage('Docker image creation') {
       steps {
            echo 'This is for Docker image build'
-           publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, icon: 
+           publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, icon:
+             }
+           }
      }
 }
