@@ -25,7 +25,7 @@ pipeline {
     stage('Docker image creation') {
       steps {
            echo 'This is for Docker image build'
-           publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, icon:
+           sh 'docker build -t sk15874/insureme:latest .'
             }
           }
      }
